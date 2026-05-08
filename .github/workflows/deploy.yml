@@ -11,21 +11,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy files to VPS
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Deploy web files
+        run: |
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
-            index.html assets/ fonts/ \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='nginx' \
+            --exclude='setup-server.sh' \
+            ./ \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/soulark/
 
-      - name: Reload Nginx
+      - name: Update nginx config and reload
         run: |
+          scp -i ~/.ssh/deploy_key \
+            nginx/soulark.conf \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/etc/nginx/conf.d/soulark.conf
+
           ssh -i ~/.ssh/deploy_key \
-            -o StrictHostKeyChecking=no \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            "nginx -t && systemctl reload nginx"
+            "nginx -t && nginx -s reload"
