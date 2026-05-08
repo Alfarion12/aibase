@@ -27,14 +27,10 @@ jobs:
             --exclude='nginx' \
             --exclude='setup-server.sh' \
             ./ \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/soulark/
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/var/www/site_user/data/www/5.188.24.69/
 
-      - name: Update nginx config and reload
+      - name: Remove old nginx config
         run: |
-          scp -i ~/.ssh/deploy_key \
-            nginx/soulark.conf \
-            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/etc/nginx/conf.d/soulark.conf
-
           ssh -i ~/.ssh/deploy_key \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            "nginx -t && nginx -s reload"
+            "rm -f /etc/nginx/conf.d/soulark.conf && nginx -s reload" || true
