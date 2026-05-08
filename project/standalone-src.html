@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SoulArk AI — AI-наставник для роста продаж и команды</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+<style>
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --bg-navy: #0B1E33;
+    --orange: #FF8C42;
+    --orange-soft: #FFA362;
+    --white: #FFFFFF;
+    --muted: rgba(255, 255, 255, 0.78);
+    --muted-soft: rgba(229, 233, 240, 0.55);
+    --green: #4CD964;
+    --container: 1440px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Open Sans', system-ui, -apple-system, Segoe UI, sans-serif;
+    color: var(--white);
+    background: var(--bg-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- HERO SECTION ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    min-height: 880px;
+    background-color: #1a2a3d;
+    background-image:
+      linear-gradient(180deg, rgba(11,30,51,0.55) 0%, rgba(11,30,51,0.45) 45%, rgba(11,30,51,0.85) 100%),
+      url('assets/hero-bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    /* subtle vignette to deepen edges */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 28px 64px 80px;
+  }
+
+  /* ---------- HEADER ---------- */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .brand img {
+    display: block;
+    height: 56px;
+    width: auto;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    flex: 1;
+    justify-content: center;
+    margin-left: 24px;
+  }
+
+  .nav a {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color .2s ease, opacity .2s ease;
+  }
+  .nav a:hover { color: var(--orange); }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    border: 2px solid var(--orange);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    background: transparent;
+    transition: background .2s ease, transform .2s ease;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: rgba(255,140,66,0.12); }
+
+  .phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    white-space: nowrap;
+  }
+  .phone .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(76,217,100,0.18);
+    flex-shrink: 0;
+  }
+
+  /* ---------- HERO CONTENT ---------- */
+  .hero-content {
+    text-align: center;
+    margin: 130px auto 0;
+    max-width: 1080px;
+    padding: 0 16px;
+  }
+
+  .hero-title {
+    font-family: 'Gilroy', 'Open Sans', sans-serif;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 1.15;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+    margin: 0;
+    color: #fff;
+    text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+    line-height: 1.55;
+    font-weight: 400;
+    margin: 36px auto 0;
+    max-width: 820px;
+    color: #fff;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  }
+  .hero-subtitle .accent {
+    color: var(--orange);
+    font-weight: 600;
+  }
+
+  .hero-meta {
+    margin: 40px 0 0;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(255,255,255,0.92);
+    text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    padding: 26px 78px;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow:
+      0 14px 40px rgba(255,140,66,0.45),
+      0 4px 14px rgba(0,0,0,0.25);
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    background: var(--orange-soft);
+    box-shadow:
+      0 20px 48px rgba(255,140,66,0.55),
+      0 6px 18px rgba(0,0,0,0.3);
+  }
+  .hero-cta:active { transform: translateY(0); }
+
+  /* ---------- SCROLL CHEVRON ---------- */
+  .scroll-down {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,0.85);
+    cursor: pointer;
+    z-index: 3;
+    animation: bob 2.2s ease-in-out infinite;
+  }
+  .scroll-down svg { display: block; }
+  @keyframes bob {
+    0%, 100% { transform: translate(-50%, 0); }
+    50%      { transform: translate(-50%, 8px); }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1200px) {
+    .hero-inner { padding: 24px 40px 60px; }
+    .nav { gap: 28px; margin-left: 12px; }
+    .phone { font-size: 18px; }
+    .hero-title { font-size: 44px; }
+  }
+  @media (max-width: 900px) {
+    .hero { min-height: 720px; }
+    .hero-inner { padding: 20px 24px 60px; }
+    .header { flex-wrap: wrap; gap: 16px; }
+    .nav { order: 3; width: 100%; justify-content: flex-start; gap: 18px; flex-wrap: wrap; margin-left: 0; }
+    .hero-content { margin-top: 80px; }
+    .hero-title { font-size: 32px; }
+    .hero-subtitle { font-size: 17px; }
+    .hero-meta { font-size: 15px; }
+    .hero-cta { padding: 20px 40px; font-size: 16px; width: 100%; max-width: 420px; }
+    .brand img { height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+    <rect width="200" height="200" fill="#0B1E33"/>
+    <circle cx="100" cy="100" r="44" fill="none" stroke="#FF8C42" stroke-width="6"/>
+    <text x="100" y="113" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="36" fill="#FF8C42">SA</text>
+  </svg>
+</template>
+
+<!-- HERO -->
+<section class="hero" id="top" data-screen-label="01 Hero">
+  <div class="hero-inner">
+    <header class="header">
+      <a class="brand" href="#top" aria-label="SoulArk AI">
+        <img src="assets/logo-with-tagline.png" alt="SoulArk AI — Развивайте навыки. Растёт бизнес." />
+      </a>
+      <nav class="nav" aria-label="Главное меню">
+        <a href="#how">Как работает</a>
+        <a href="#results">Результаты</a>
+        <a href="#demo">ДЕМО</a>
+        <a class="nav-cta" href="https://t.me/" target="_blank" rel="noopener">Чат в Телеграм 24/7</a>
+      </nav>
+      <a class="phone" href="tel:+74955131356">
+        <span class="dot" aria-hidden="true"></span>
+        +7 495 513-13-56
+      </a>
+    </header>
+
+    <div class="hero-content">
+      <h1 class="hero-title" id="hero-title">AI-наставник для роста продаж и команды</h1>
+
+      <p class="hero-subtitle" id="hero-subtitle">
+        Ваши менеджеры сливают сделки на звонках. Поднимем конверсию
+        <span class="accent">+15–25% за 4 недели</span> — на тех же лидах
+      </p>
+
+      <p class="hero-meta" id="hero-meta">
+        Демо бесплатно · Триал 7 дней · Окупаемость с первой сделки
+      </p>
+
+      <button class="hero-cta" id="hero-cta" type="button" onclick="document.getElementById('how')?.scrollIntoView({behavior:'smooth'})">
+        Получить разбор звонка
+      </button>
+    </div>
+  </div>
+
+  <a href="#how" class="scroll-down" aria-label="Прокрутить вниз">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 16 18 9"></polyline>
+    </svg>
+  </a>
+</section>
+
+<!-- placeholder anchors so smooth-scroll links don't 404 -->
+<div id="how" style="height:1px"></div>
+<div id="results" style="height:1px"></div>
+<div id="demo" style="height:1px"></div>
+
+
+
+
+
+</body>
+</html>
