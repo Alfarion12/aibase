@@ -137,6 +137,11 @@
     background: var(--green);
     box-shadow: 0 0 0 4px rgba(76,217,100,0.18);
     flex-shrink: 0;
+    animation: pulse-dot 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(76,217,100,0.18); opacity: 1; }
+    50%       { box-shadow: 0 0 0 8px rgba(76,217,100,0.0);  opacity: 0.55; }
   }
 
   /* ---------- HERO CONTENT ---------- */
