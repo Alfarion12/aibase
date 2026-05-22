@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="AI-наставник слушает 100% звонков, находит где сливаются сделки и тренирует команду закрывать их." />
   <title>SoulArk AI — AI-наставник для роста продаж</title>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109371472','ym');
+    ym(109371472,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109371472" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
 </head>
 <body>
 <!-- ====================================================================
@@ -550,6 +557,7 @@ button { font-family: inherit; cursor: pointer; }
 <script type="text/babel" data-presets="react">
 /* SoulArk AI \u2014 Landing app (v2 \u2014 tight) */
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbzLx3d8LrTW58mX6kyl6Kt86TRLm-YgcqXCNH78ZMPQ49YASp392sMakWlfFiYsBw-KpQ/exec";
+const UTM = (function(){var p=new URLSearchParams(window.location.search);return{utm_source:p.get("utm_source")||"",utm_medium:p.get("utm_medium")||"",utm_campaign:p.get("utm_campaign")||"",utm_content:p.get("utm_content")||"",utm_term:p.get("utm_term")||""};})();
 const { useState, useRef } = React;
 
 // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -690,8 +698,9 @@ function Quiz() {
     } else {
       fetch(SHEET_URL, {
         method: "POST",
-        body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, phone }),
+        body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, phone, ...UTM }),
       }).catch(() => {});
+      if (window.ym) ym(109371472, 'reachGoal', 'quiz_submit');
       setDone(true);
     }
   }
