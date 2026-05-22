@@ -549,6 +549,7 @@ button { font-family: inherit; cursor: pointer; }
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
 <script type="text/babel" data-presets="react">
 /* SoulArk AI \u2014 Landing app (v2 \u2014 tight) */
+const SHEET_URL = "https://script.google.com/macros/s/AKfycby2DNAi9KDAhG7-6p6UETS3_xDPI4ZxDJ0SXG8qli76nUjDtP1UfzeOtRvfS3XBTE7LPQ/exec";
 const { useState, useRef } = React;
 
 // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -684,8 +685,15 @@ function Quiz() {
   const progress = done ? 100 : ((stepIdx + (ready ? 1 : 0.4)) / total) * 100;
 
   function goNext() {
-    if (stepIdx < total - 1) setStepIdx(stepIdx + 1);
-    else setDone(true);
+    if (stepIdx < total - 1) {
+      setStepIdx(stepIdx + 1);
+    } else {
+      fetch(SHEET_URL, {
+        method: "POST",
+        body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, phone }),
+      }).catch(() => {});
+      setDone(true);
+    }
   }
 
   function selectOption(opt) {
