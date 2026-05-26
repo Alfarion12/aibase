@@ -300,18 +300,15 @@ button { font-family: inherit; cursor: pointer; }
 @media (min-width: 540px) { .quiz-intro { font-size: 14px; letter-spacing: 0; } }
 @media (min-width: 720px) { .quiz-intro { font-size: 16px; } }
 .quiz-intro .accent {
-  background: var(--color-accent);
-  color: #fff;
+  background: none;
+  color: var(--color-accent);
   font-weight: 700;
-  padding: 2px 6px;
+  padding: 0;
   border-radius: 0;
   white-space: nowrap;
-  display: inline-block;
+  display: inline;
   margin-right: 4px;
   letter-spacing: 0;
-}
-@media (min-width: 540px) {
-  .quiz-intro .accent { padding: 3px 8px; }
 }
 
 /* ============== QUIZ CARD ============== */
@@ -396,10 +393,8 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--color-accent-soft);
 }
 .option.is-selected {
-  border-color: var(--color-border-2);
-  background: #fff;
-  color: var(--color-accent);
-  font-weight: 600;
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
 }
 .option-radio {
   width: 16px; height: 16px;
