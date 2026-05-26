@@ -807,7 +807,13 @@ function Quiz() {
         {step.type === "phone" && (
           <div className="phone-field">
             <div className="phone-row">
-              <span className="phone-flag">{"🇷🇺"}</span>
+              <span className="phone-flag">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="26" height="18" style={{borderRadius:"2px",display:"block"}}>
+                  <rect width="900" height="200" fill="#fff"/>
+                  <rect width="900" height="200" y="200" fill="#0039A6"/>
+                  <rect width="900" height="200" y="400" fill="#D52B1E"/>
+                </svg>
+              </span>
               <input
                 type="tel"
                 inputMode="tel"
@@ -819,7 +825,7 @@ function Quiz() {
               />
             </div>
             <div className="phone-testimonial">
-              {"«Видно где именно теряется сделка, рекомендации конкретные» — Марина, руководитель отдела продаж"}
+              {"«Видно где именно теряется сделка, рекомендации конкретные» — Марина, РОП"}
             </div>
           </div>
         )}
