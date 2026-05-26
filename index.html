@@ -833,9 +833,11 @@ function Quiz() {
         <div className="quiz-nav">
           <div className="quiz-step-label">{"Шаг"} {stepIdx + 1}/{total}</div>
           <div className="quiz-nav-right">
-            <button type="button" className="btn-back" onClick={back} disabled={stepIdx === 0} aria-label={"\u041d\u0430\u0437\u0430\u0434"}>
-              <Icon name="arrow-left" size={18} />
-            </button>
+            {step.type !== "phone" && (
+              <button type="button" className="btn-back" onClick={back} disabled={stepIdx === 0} aria-label={"\u041d\u0430\u0437\u0430\u0434"}>
+                <Icon name="arrow-left" size={18} />
+              </button>
+            )}
             <button type="button" className="btn-next" onClick={next} disabled={!ready}>
               {isLast ? "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c" : "\u0414\u0430\u043b\u0435\u0435"}
               <Icon name="arrow" size={16} />
