@@ -288,7 +288,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ============== QUIZ INTRO ============== */
 .quiz-intro {
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.4;
   color: var(--color-fg1);
   padding: 6px 2px 2px;
@@ -297,8 +297,8 @@ button { font-family: inherit; cursor: pointer; }
   white-space: nowrap;
   overflow: hidden;
 }
-@media (min-width: 540px) { .quiz-intro { font-size: 14px; letter-spacing: 0; } }
-@media (min-width: 720px) { .quiz-intro { font-size: 16px; } }
+@media (min-width: 540px) { .quiz-intro { font-size: 15px; letter-spacing: 0; } }
+@media (min-width: 720px) { .quiz-intro { font-size: 17px; } }
 .quiz-intro .accent {
   background: none;
   color: var(--color-accent);
@@ -836,9 +836,8 @@ function Quiz() {
                 <Icon name="arrow-left" size={18} />
               </button>
             )}
-            <button type="button" className="btn-next" onClick={next} disabled={!ready}>
-              {isLast ? "\u041e\u0442\u043f\u0440\u0430\u0432\u0438\u0442\u044c" : "\u0414\u0430\u043b\u0435\u0435"}
-              <Icon name="arrow" size={16} />
+            <button type="button" className="btn-next" onClick={next} disabled={!ready} style={{display: isLast ? "" : "none"}}>
+              {"\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0440\u0430\u0441\u0447\u0451\u0442 \u2192"}
             </button>
           </div>
         </div>
