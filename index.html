@@ -584,7 +584,7 @@ button { font-family: inherit; cursor: pointer; }
 /* SoulArk AI \u2014 Landing app (v2 \u2014 tight) */
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbwAydgjnFbpAu_YCg5SR6DuR6lG8GZiMu166lX3VIYCyQqbtemZRp2P6ya-M9AugxvX7A/exec";
 const UTM = (function(){var p=new URLSearchParams(window.location.search);return{utm_source:p.get("utm_source")||"",utm_medium:p.get("utm_medium")||"",utm_campaign:p.get("utm_campaign")||"",utm_content:p.get("utm_content")||"",utm_term:p.get("utm_term")||""};})();
-const AB_VARIANT = (function(){var k="ab_photo",v=sessionStorage.getItem(k);if(!v){v=Math.random()<0.5?"A":"B";sessionStorage.setItem(k,v);}if(window.ym)ym(109371472,"params",{ab_photo:v});return v;})();
+const AB_VARIANT = (function(){var k="ab_photo",v=sessionStorage.getItem(k);if(!v){v=Math.random()<0.5?"alexander":"pavel";sessionStorage.setItem(k,v);}if(window.ym)ym(109371472,"params",{ab_photo:v});return v;})();
 const { useState, useRef } = React;
 
 // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
@@ -890,7 +890,7 @@ function App() {
             </div>
           </div>
           <div className="hero-photo">
-            <img src={AB_VARIANT === "A" ? "assets/photo-fe0bbc87-6d02-4264-a1e1-e9574bbf5acf.jpg" : "assets/photo-a3a17098-84dc-4cd4-a563-28adb228b81c.jpg"} alt={AB_VARIANT === "A" ? "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0424\u0430\u0440\u0435\u0441\u043e\u0432" : "\u041f\u0430\u0432\u0435\u043b, \u043f\u0430\u0440\u0442\u043d\u0451\u0440 SoulArk"} />
+            <img src={AB_VARIANT === "alexander" ? "assets/photo-fe0bbc87-6d02-4264-a1e1-e9574bbf5acf.jpg" : "assets/photo-a3a17098-84dc-4cd4-a563-28adb228b81c.jpg"} alt={AB_VARIANT === "alexander" ? "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0424\u0430\u0440\u0435\u0441\u043e\u0432" : "\u041f\u0430\u0432\u0435\u043b, \u043f\u0430\u0440\u0442\u043d\u0451\u0440 SoulArk"} />
             <div className="hero-photo-caption">{"\u0420\u0430\u0437\u0432\u0438\u0432\u0430\u0439\u0442\u0435 \u043d\u0430\u0432\u044b\u043a\u0438. \u0420\u0430\u0441\u0442\u0451\u0442 \u0431\u0438\u0437\u043d\u0435\u0441"}</div>
           </div>
         </section>
