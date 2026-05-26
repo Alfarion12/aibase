@@ -361,6 +361,12 @@ button { font-family: inherit; cursor: pointer; }
 @media (min-width: 720px) {
   .quiz-question { font-size: 17px; }
 }
+.quiz-subtitle {
+  font-size: 13px;
+  color: var(--color-fg2);
+  margin: -6px 0 0;
+  font-weight: 400;
+}
 
 .options {
   display: grid;
@@ -439,6 +445,22 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: center;
   gap: 5px;
+}
+.phone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.phone-flag {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.phone-testimonial {
+  font-size: 12px;
+  color: var(--color-fg3);
+  font-style: italic;
+  line-height: 1.45;
 }
 
 /* Quiz nav */
@@ -667,15 +689,9 @@ const QUIZ_STEPS = [
     options: ["до 50 т.р.", "50 – 200 т.р.", "более 200 т.р."],
   },
   {
-    id: "channel",
-    question: "Куда прислать расчет?",
-    type: "single",
-    cols: 1,
-    options: ["Позвоните мне", "Напишите в Telegram", "Напишите в MAX"],
-  },
-  {
     id: "phone",
-    question: "Телефон",
+    question: "Куда скинуть ваш расчёт?",
+    subtitle: "Верните упущенную прибыль",
     type: "phone",
   },
 ];
@@ -767,6 +783,7 @@ function Quiz() {
 
       <div className="quiz-body">
         <h3 className="quiz-question">{step.question}</h3>
+        {step.subtitle && <p className="quiz-subtitle">{step.subtitle}</p>}
 
         {step.type === "single" && (
           <div className={"options " + (step.cols === 2 ? "cols-2" : "")}>
@@ -789,15 +806,21 @@ function Quiz() {
 
         {step.type === "phone" && (
           <div className="phone-field">
-            <input
-              type="tel"
-              inputMode="tel"
-              className="phone-input"
-              placeholder="+7 (___) ___-__-__"
-              value={phone}
-              onChange={onPhoneChange}
-              autoComplete="tel"
-            />
+            <div className="phone-row">
+              <span className="phone-flag">{"🇷🇺"}</span>
+              <input
+                type="tel"
+                inputMode="tel"
+                className="phone-input"
+                placeholder="+7 (___) ___-__-__"
+                value={phone}
+                onChange={onPhoneChange}
+                autoComplete="tel"
+              />
+            </div>
+            <div className="phone-testimonial">
+              {"«Видно где именно теряется сделка, рекомендации конкретные» — Марина, руководитель отдела продаж"}
+            </div>
           </div>
         )}
 
