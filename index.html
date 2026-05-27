@@ -575,8 +575,42 @@ button { font-family: inherit; cursor: pointer; }
 #soulark-app, #soulark-app * { box-sizing: border-box; }
 #soulark-app { font-family: 'Inter', system-ui, sans-serif; color: #0B1E33; max-width: 720px; margin: 0 auto; }
 
+/* tag-avatar: hidden on desktop */
+.tag-avatar { display: none; }
+
 /* ============== MOBILE ONLY (< 720px) ============== */
 @media (max-width: 719px) {
+
+  /* Tag-strip: full width, avatar in right corner */
+  .tag-strip {
+    width: 100%;
+    position: relative;
+    padding-right: 64px;
+    overflow: visible;
+  }
+  .tag-strip .wink { display: none; }
+  .tag-avatar {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-champagne-bg);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  }
+  .tag-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 8%;
+  }
+
+  /* Hide large hero-photo on mobile — shown as tag-avatar */
+  .hero-photo { display: none; }
 
   /* Hero: stack vertically, photo becomes avatar row */
   .hero {
@@ -933,6 +967,7 @@ function App() {
         <div className="tag-strip">
           <span>{"AI-\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442, \u043a\u043e\u0442\u043e\u0440\u044b\u0439 \u0443\u0436\u0435 \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u044e\u0442 \u0432\u0430\u0448\u0438 \u043a\u043e\u043d\u043a\u0443\u0440\u0435\u043d\u0442\u044b"}</span>
           <span className="wink">{"\ud83d\ude09"}</span>
+          <div className="tag-avatar"><img src={AB_VARIANT === "alexander" ? "assets/photo-fe0bbc87-6d02-4264-a1e1-e9574bbf5acf.jpg" : "assets/photo-a3a17098-84dc-4cd4-a563-28adb228b81c.jpg"} alt="" /></div>
         </div>
 
         {/* Hero \u2014 text + benefits LEFT, photo RIGHT, white background */}
