@@ -369,7 +369,7 @@ button { font-family: inherit; cursor: pointer; }
 .options {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 7px;
+  gap: 8px;
 }
 @media (min-width: 540px) {
   .options.cols-2 { grid-template-columns: 1fr 1fr; }
@@ -647,7 +647,8 @@ button { font-family: inherit; cursor: pointer; }
 
   /* Fonts: larger for all body text on mobile */
   .benefit-title { font-size: 15px; }
-  .option { font-size: 16px; padding: 13px 14px; }
+  .option { font-size: 16px; padding: 14px 16px; min-height: 48px; }
+  .options { gap: 10px; }
   .quiz-question { font-size: 17px; }
   .quiz-step-label { font-size: 14px; }
   .quiz-intro-sub { font-size: 15px; }
@@ -684,6 +685,12 @@ button { font-family: inherit; cursor: pointer; }
     font-weight: 400;
     font-style: italic;
   }
+
+  /* Submit button: full width on last step */
+  .quiz-nav.is-last { display: block; }
+  .quiz-nav.is-last .quiz-step-label { display: none; }
+  .quiz-nav.is-last .quiz-nav-right { width: 100%; }
+  .quiz-nav.is-last .btn-next { width: 100%; height: 52px; font-size: 17px; }
 }
 </style>
 
@@ -941,7 +948,7 @@ function Quiz() {
           </div>
         )}
 
-        <div className="quiz-nav">
+        <div className={"quiz-nav" + (isLast ? " is-last" : "")}>
           <div className="quiz-step-label">{"Шаг"} {stepIdx + 1}/{total}</div>
           <div className="quiz-nav-right">
             {step.type !== "phone" && (
@@ -1010,7 +1017,7 @@ function App() {
 
         {/* Quiz intro */}
         <div className="quiz-intro">
-<span className="accent">{"\u041e\u0442\u0432\u0435\u0442\u044c\u0442\u0435 \u043d\u0430 4 \u0432\u043e\u043f\u0440\u043e\u0441\u0430"}</span><span className="quiz-intro-sub">{"\u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0435\u043c \u0432\u0430\u0448\u0443 \u0443\u043f\u0443\u0449\u0435\u043d\u043d\u0443\u044e \u0432\u044b\u0440\u0443\u0447\u043a\u0443 \ud83d\udc47"}</span></div>
+<span className="accent">{"\u041e\u0442\u0432\u0435\u0442\u044c\u0442\u0435 \u043d\u0430 4 \u0432\u043e\u043f\u0440\u043e\u0441\u0430"}</span><span className="quiz-intro-sub">{"\u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0435\u043c \u0432\u0430\u0448\u0443 \u0443\u043f\u0443\u0449\u0435\u043d\u043d\u0443\u044e \u0432\u044b\u0440\u0443\u0447\u043a\u0443"}</span></div>
 
         {/* Quiz */}
         <Quiz />
