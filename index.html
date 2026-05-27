@@ -574,6 +574,71 @@ button { font-family: inherit; cursor: pointer; }
 .footer-legal { font-style: italic; opacity: 0.85; }
 #soulark-app, #soulark-app * { box-sizing: border-box; }
 #soulark-app { font-family: 'Inter', system-ui, sans-serif; color: #0B1E33; max-width: 720px; margin: 0 auto; }
+
+/* ============== MOBILE ONLY (< 720px) ============== */
+@media (max-width: 719px) {
+
+  /* Hero: stack vertically, photo becomes avatar row */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  /* Title: bigger on mobile */
+  .hero-title {
+    font-size: 24px;
+  }
+
+  /* Subtitle: hide on mobile — title says enough */
+  .hero-sub {
+    display: none;
+  }
+
+  /* Benefits: icon + title only, no description text */
+  .benefit-text {
+    display: none;
+  }
+  .benefit {
+    padding: 7px 10px;
+    align-items: center;
+  }
+  .benefit-title {
+    font-size: 13px;
+    margin-bottom: 0;
+  }
+
+  /* Photo: small avatar row instead of large block */
+  .hero-photo {
+    min-height: unset;
+    height: unset;
+    background: none;
+    border-radius: 0;
+    overflow: visible;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .hero-photo img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 15%;
+    flex-shrink: 0;
+  }
+  .hero-photo-caption {
+    position: static;
+    background: none;
+    color: var(--color-fg2);
+    font-size: 12px;
+    text-align: left;
+    padding: 0;
+    font-weight: 400;
+    font-style: italic;
+  }
+}
 </style>
 
 <div id="soulark-app"><div id="root"></div></div>
