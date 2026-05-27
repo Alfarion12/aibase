@@ -608,7 +608,16 @@ button { font-family: inherit; cursor: pointer; }
     margin-bottom: 0;
   }
 
-  /* Photo: small avatar row instead of large block */
+  /* Fonts: larger for all body text on mobile */
+  .benefit-title { font-size: 15px; }
+  .option { font-size: 16px; padding: 13px 14px; }
+  .quiz-question { font-size: 17px; }
+  .quiz-step-label { font-size: 14px; }
+  .quiz-intro-sub { font-size: 14px; }
+  .phone-testimonial { font-size: 13px; }
+  .hero-sub { font-size: 15px; }
+
+  /* Photo: medium avatar row */
   .hero-photo {
     min-height: unset;
     height: unset;
@@ -618,11 +627,11 @@ button { font-family: inherit; cursor: pointer; }
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 12px;
   }
   .hero-photo img {
-    width: 52px;
-    height: 52px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     object-position: 50% 15%;
@@ -632,7 +641,7 @@ button { font-family: inherit; cursor: pointer; }
     position: static;
     background: none;
     color: var(--color-fg2);
-    font-size: 12px;
+    font-size: 13px;
     text-align: left;
     padding: 0;
     font-weight: 400;
