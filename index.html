@@ -113,6 +113,8 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 500;
 }
 .tag-strip .wink { font-size: 13px; }
+.tag-d { display: inline; }
+.tag-m { display: none; }
 @media (min-width: 540px) {
   .tag-strip { font-size: 13px; padding: 7px 14px; }
 }
@@ -632,9 +634,11 @@ button { font-family: inherit; cursor: pointer; }
     position: relative;
     padding-right: 64px;
     overflow: visible;
-    font-size: 14px;
+    font-size: 12px;
   }
   .tag-strip .wink { display: none; }
+  .tag-m { display: inline; }
+  .tag-d { display: none; }
   .tag-avatar {
     display: block;
     position: absolute;
@@ -1030,7 +1034,7 @@ function App() {
     <div className="page">
       <main className="shell" data-screen-label="01 Landing">
         <div className="tag-strip">
-          <span><em>${"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u044b \u0442\u0440\u0435\u043d\u0438\u0440\u0443\u044e\u0442\u0441\u044f. \u0412\u044b\u00a0\u2014 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0435."}</em><br /><span style=${{fontStyle:"normal", fontSize:"11px", opacity:0.8}}>${"\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440, \u043e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c SoulArk AI"}</span></span>
+          <span className="tag-d"><em>${"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u044b \u0442\u0440\u0435\u043d\u0438\u0440\u0443\u044e\u0442\u0441\u044f. \u0412\u044b\u00a0\u2014 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0435."}</em><span style=${{opacity:0.7}}>${" \u00b7 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440, \u043e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c SoulArk AI"}</span></span><span className="tag-m"><em>${"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u044b \u0442\u0440\u0435\u043d\u0438\u0440\u0443\u044e\u0442\u0441\u044f. \u0412\u044b\u00a0\u2014 \u0437\u0430\u0440\u0430\u0431\u0430\u0442\u044b\u0432\u0430\u0435\u0442\u0435."}</em><br /><span style=${{fontSize:"11px", opacity:0.8}}>${"\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440, \u043e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c SoulArk AI"}</span></span>
           <div className="tag-avatar">
             <picture>
               <source srcset="assets/myphoto2.webp" type="image/webp" />
