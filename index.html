@@ -964,6 +964,7 @@ function Quiz() {
 
   function goNext() {
     if (stepIdx < total - 1) {
+      if (window.ym) ym(109371472, 'reachGoal', 'quiz_step_' + (stepIdx + 1), {answer: answers[step.id]});
       setSlideDir(1);
       setStepIdx(stepIdx + 1);
     } else {
