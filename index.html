@@ -741,6 +741,79 @@ button { font-family: inherit; cursor: pointer; }
   .quiz-nav.is-last .quiz-nav-right { width: 100%; }
   .quiz-nav.is-last .btn-next { width: 100%; height: 52px; font-size: 17px; }
 }
+.logos-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.logos-label {
+  font-size: 11px;
+  color: var(--color-fg3);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.logos-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+.logo-tile {
+  flex: 1;
+  background: #f5f5f5;
+  border-radius: 6px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  max-width: 140px;
+}
+.logo-tile img {
+  max-height: 32px;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+.quote-block {
+  background: #364B68;
+  border-radius: var(--radius-md);
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.quote-icon {
+  display: block;
+}
+.quote-text {
+  font-style: italic;
+  color: #e8eef5;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+}
+.quote-author {
+  color: #FF8C42;
+  font-size: 12px;
+  text-align: right;
+  margin: 0;
+  font-weight: 500;
+}
+.quiz-trust {
+  font-size: 11px;
+  color: var(--color-fg3);
+  text-align: center;
+  margin: 4px 0 0;
+  display: none;
+}
+.quiz-nav.is-last .quiz-trust {
+  display: block;
+}
 </style>
 
 <div id="soulark-app"><div id="root"></div></div>
@@ -1020,6 +1093,7 @@ function Quiz() {
               ${"\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043c\u043e\u0439 \u0440\u0430\u0441\u0447\u0451\u0442 \u2192"}
             </button>
           </div>
+          <p className="quiz-trust">${"\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e \u00b7 \u0420\u0430\u0431\u043e\u0442\u0430\u0435\u043c \u043f\u043e 152-\u0424\u0417"}</p>
         </div>
       </div>
     </section>
@@ -1077,8 +1151,25 @@ function App() {
           </div>
         </section>
 
+        <div className="logos-block">
+          <p className="logos-label">${"\u0417\u043d\u0430\u0435\u043c \u044d\u0442\u0438 \u0440\u044b\u043d\u043a\u0438 \u0438\u0437\u043d\u0443\u0442\u0440\u0438"}</p>
+          <div className="logos-row">
+            <div className="logo-tile"><img src="assets/p3.png" alt="\u041f\u042d\u041a" /></div>
+            <div className="logo-tile"><img src="assets/p4-2.png" alt="LIFEPAY" /></div>
+            <div className="logo-tile"><img src="assets/p6.png" alt="TRASKO" /></div>
+          </div>
+        </div>
+
+        <div className="quote-block">
+          <svg className="quote-icon" width="20" height="16" viewBox="0 0 20 16" fill="none">
+            <path d="M0 16V9.6C0 4.267 3.2 1.067 9.6 0L10.4 1.6C7.733 2.4 6.133 4 5.6 6.4H8V16H0ZM12 16V9.6C12 4.267 15.2 1.067 21.6 0L22.4 1.6C19.733 2.4 18.133 4 17.6 6.4H20V16H12Z" fill="#FF8C42"/>
+          </svg>
+          <p className="quote-text">${"\u041e\u0431\u043d\u0430\u0440\u0443\u0436\u0438\u043b\u0430 240 \u0442.\u0440. \u0443\u043f\u0443\u0449\u0435\u043d\u043d\u043e\u0439 \u0432\u044b\u0440\u0443\u0447\u043a\u0438 \u0437\u0430 \u043f\u0435\u0440\u0432\u0443\u044e \u043d\u0435\u0434\u0435\u043b\u044e"}</p>
+          <p className="quote-author">${"\u2014 \u041e\u043a\u0441\u0430\u043d\u0430, \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u043f\u043e \u043f\u0440\u043e\u0434\u0430\u0436\u0430\u043c"}</p>
+        </div>
+
         <div className="quiz-intro">
-          <span className="accent">${"\u041e\u0442\u0432\u0435\u0442\u044c\u0442\u0435 \u043d\u0430 4 \u0432\u043e\u043f\u0440\u043e\u0441\u0430"}</span><span className="quiz-intro-sub">${"\u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0435\u043c \u0432\u0430\u0448\u0443 \u0443\u043f\u0443\u0449\u0435\u043d\u043d\u0443\u044e \u0432\u044b\u0440\u0443\u0447\u043a\u0443"}</span>
+          <span className="accent">${"\u0423\u0437\u043d\u0430\u0439\u0442\u0435 \u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0432\u044b \u0442\u0435\u0440\u044f\u0435\u0442\u0435 \u043d\u0430 \u0437\u0432\u043e\u043d\u043a\u0430\u0445"}</span><span className="quiz-intro-sub">${"\u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e \u0440\u0430\u0441\u0441\u0447\u0438\u0442\u0430\u0435\u043c \u0432\u0430\u0448\u0443 \u0443\u043f\u0443\u0449\u0435\u043d\u043d\u0443\u044e \u0432\u044b\u0440\u0443\u0447\u043a\u0443"}</span>
         </div>
 
         ${html`<${Quiz} />`}
