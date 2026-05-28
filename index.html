@@ -809,17 +809,26 @@ button { font-family: inherit; cursor: pointer; }
 .quiz-trust {
   font-size: 11px;
   color: var(--color-fg3);
-  text-align: left;
+  text-align: center;
   margin: 0;
   display: none;
 }
+/* Desktop last step: step-label | trust | button in one row */
+.quiz-nav.is-last .quiz-step-label { order: 1; }
 .quiz-nav.is-last .quiz-trust {
   display: flex;
   align-items: center;
-  order: -1;
+  order: 2;
 }
+.quiz-nav.is-last .quiz-nav-right { order: 3; }
+/* Mobile last step: trust block below button */
 @media (max-width: 719px) {
-  .quiz-nav.is-last .quiz-trust { display: none; }
+  .quiz-nav.is-last .quiz-trust {
+    display: block;
+    order: unset;
+    margin-top: 8px;
+    text-align: center;
+  }
 }
 </style>
 
