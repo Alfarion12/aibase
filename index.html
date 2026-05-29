@@ -477,6 +477,30 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.45;
   text-align: right;
 }
+.phone-caller {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.phone-caller-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.phone-caller-name {
+  font-size: 11px;
+  color: var(--color-fg1);
+  font-weight: 600;
+  line-height: 1.3;
+}
+.phone-caller-sub {
+  font-size: 11px;
+  color: var(--color-fg3);
+  line-height: 1.3;
+}
 
 /* Quiz nav */
 .quiz-nav {
@@ -1047,6 +1071,15 @@ function Quiz() {
         <div key=${stepIdx} className=${slideDir >= 0 ? "step-enter-right" : "step-enter-left"}>
         <h3 className="quiz-question">${step.question}</h3>
         ${step.subtitle && html`<p className="quiz-subtitle">${step.subtitle}</p>`}
+        ${step.type === "phone" && html`
+          <div className="phone-caller">
+            <img src="assets/Рисунок1.1.jpg" alt="Павел" className="phone-caller-avatar" loading="lazy" />
+            <div>
+              <div className="phone-caller-name">${"Павел, со-основатель"}</div>
+              <div className="phone-caller-sub">${"Позвонит 1 раз"}</div>
+            </div>
+          </div>
+        `}
 
         ${step.type === "single" && html`
           <div className=${"options " + (step.cols === 2 ? "cols-2" : "")}>
