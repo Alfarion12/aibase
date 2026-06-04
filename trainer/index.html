@@ -628,19 +628,20 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   gap: 8px;
   padding: 13px 24px;
-  background: #229ED9;
-  color: #fff;
+  background: transparent;
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
   border-radius: var(--radius-md);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
-  transition: background 160ms ease;
+  transition: background 160ms ease, color 160ms ease;
   width: 100%;
   justify-content: center;
   box-sizing: border-box;
 }
-.quiz-success-tg:hover { background: #1a8bbf; }
+.quiz-success-tg:hover { background: #fff5ec; }
 .phone-lock {
   display: flex;
   align-items: center;
@@ -1163,8 +1164,8 @@ function Quiz() {
         <div className="quiz-body">
           <div className="quiz-success">
             <div className="quiz-success-icon">${html`<${Icon} name="check" size=${28} stroke=${2.25} />`}</div>
-            <h3>${"\u0420\u0430\u0437\u0431\u043e\u0440 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d!"}</h3>
-            <p className="quiz-success-timer">${"\u041f\u0440\u0438\u0448\u043b\u0451\u043c \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u0438 \u0433\u0430\u0439\u0434"}<br/>${"\u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u0438\u0445 \u043c\u0438\u043d\u0443\u0442"}</p>
+            <h3>${"\u0413\u043e\u0442\u043e\u0432\u043e! \u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u044f\u0442\u0430"}</h3>
+            <p className="quiz-success-timer">${"\u041f\u0440\u0438\u0448\u043b\u0451\u043c \u0433\u0430\u0439\u0434 \u0438 \u043f\u0440\u0438\u0433\u043b\u0430\u0441\u0438\u043c \u043d\u0430 \u0440\u0430\u0437\u0431\u043e\u0440 \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 \u0447\u0430\u0441\u0430 (\u0432 \u0440\u0430\u0431\u043e\u0447\u0435\u0435 \u0432\u0440\u0435\u043c\u044f)."}<br/><br/>${"\u041f\u0430\u0432\u0435\u043b, \u0441\u043e-\u043e\u0441\u043d\u043e\u0432\u0430\u0442\u0435\u043b\u044c SoulArk AI, \u0441\u0432\u044f\u0436\u0435\u0442\u0441\u044f \u0441 \u0432\u0430\u043c\u0438 \u043b\u0438\u0447\u043d\u043e."}</p>
             <a className="quiz-success-tg" href="https://t.me/SoulArkAI">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.07l-2.968-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.944.516z"/></svg>
               ${"\u041d\u0430\u0448 \u043a\u0430\u043d\u0430\u043b \u0432 Telegram"}
