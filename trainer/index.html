@@ -1141,6 +1141,7 @@ function Quiz() {
     } else {
       fetch(SHEET_URL, {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, channel, contact: contactValue, phone: contactValue, tried: answers.listen_calls, team_size: answers.know_losses, avg_check: answers.train_managers, ...UTM, layout: AB_LAYOUT, variant: 'trainer' }),
       }).catch(() => {});
       if (window.ym) ym(109371472, 'reachGoal', 'quiz_submit', {layout: AB_LAYOUT, variant: 'trainer'});
