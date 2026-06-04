@@ -7,13 +7,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon-180.png" />
-  <title>Тренинг забывается? AI-тренажёр для продаж — SoulArk AI</title>
-  <meta name="description" content="AI-тренажёр прокачивает менеджеров на ваших реальных звонках — каждый день, а не раз в год. Ответьте на 4 вопроса. Тест 7 дней бесплатно." />
+  <title>Узнайте где проседает ваша команда — SoulArk AI</title>
+  <meta name="description" content="3 вопроса о вашем отделе продаж — и честный разбор от эксперта, где теряются сделки. В подарок гайд по внедрению AI. Бесплатно." />
   <link rel="canonical" href="https://quiz.soulark.ru/trainer/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://quiz.soulark.ru/trainer/" />
-  <meta property="og:title" content="Тренинг забывается? AI-тренажёр для продаж — SoulArk AI" />
-  <meta property="og:description" content="AI-тренажёр прокачивает менеджеров на ваших реальных звонках — каждый день, а не раз в год. Ответьте на 4 вопроса. Тест 7 дней бесплатно." />
+  <meta property="og:title" content="Узнайте где проседает ваша команда — SoulArk AI" />
+  <meta property="og:description" content="3 вопроса о вашем отделе продаж — и честный разбор от эксперта, где теряются сделки. В подарок гайд по внедрению AI. Бесплатно." />
   <meta property="og:image" content="https://quiz.soulark.ru/assets/og-image.png" />
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
@@ -924,6 +924,74 @@ button { font-family: inherit; cursor: pointer; }
 .benefits-bottom {
   margin: 20px 0 4px;
 }
+
+/* ============== GIFT / CONTACT STEP ============== */
+.quiz-progress { height: 8px; }
+.gift-teaser {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #FFF5EC;
+  border: 1px solid #FFD4AA;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+}
+.gift-teaser-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #B85C1E;
+  margin-bottom: 2px;
+}
+.gift-teaser-sub {
+  font-size: 12px;
+  color: #7a4010;
+  line-height: 1.4;
+}
+.contact-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: #B85C1E;
+  margin: 0 0 10px;
+}
+.gift-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #FFF5EC;
+  border: 1px solid #FFD4AA;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: #7a4010;
+  margin-bottom: 12px;
+}
+.contact-sub {
+  font-size: 13px;
+  color: #555;
+  margin: 0 0 8px;
+}
+.channel-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.channel-tab {
+  padding: 7px 16px;
+  border: 1.5px solid #ccc;
+  border-radius: 20px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  color: #444;
+  transition: border-color 0.15s, color 0.15s;
+}
+.channel-tab.active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  font-weight: 600;
+}
 </style>
 
 <div id="soulark-app"><div id="root"></div></div>
@@ -998,36 +1066,42 @@ const Icon = ({ name, size = 24, stroke = 1.75, className = "" }) => {
 // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 const QUIZ_STEPS = [
   {
-    id: "tried",
-    question: "Что уже пробовали, чтобы поднять продажи?",
+    id: "listen_calls",
+    question: "\u041a\u0430\u043a \u0447\u0430\u0441\u0442\u043e \u0432\u044b \u0441\u043b\u0443\u0448\u0430\u0435\u0442\u0435 \u0437\u0432\u043e\u043d\u043a\u0438 \u0441\u0432\u043e\u0438\u0445 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u043e\u0432?",
     type: "single",
     cols: 1,
     options: [
-      "Нанимали тренера — эффект прошёл",
-      "Писали скрипты — не помогло",
-      "Слушали звонки вручную — нет времени",
-      "Пока ничего системного",
+      "\u041a\u0430\u0436\u0434\u044b\u0439 \u0434\u0435\u043d\u044c",
+      "\u0420\u0430\u0437 \u0432 \u043d\u0435\u0434\u0435\u043b\u044e",
+      "\u041f\u043e\u0447\u0442\u0438 \u043d\u0438\u043a\u043e\u0433\u0434\u0430",
     ],
   },
   {
-    id: "team_size",
-    question: "Сколько у вас менеджеров по продажам?",
-    type: "single",
-    cols: 2,
-    options: ["1–2", "3–5", "6–10", "11+"],
-  },
-  {
-    id: "avg_check",
-    question: "Какой примерный средний чек?",
+    id: "know_losses",
+    question: "\u0415\u0441\u0442\u044c \u043b\u0438 \u043f\u043e\u043d\u0438\u043c\u0430\u043d\u0438\u0435, \u0433\u0434\u0435 \u0438\u043c\u0435\u043d\u043d\u043e \u0442\u0435\u0440\u044f\u044e\u0442\u0441\u044f \u0432\u0430\u0448\u0438 \u0441\u0434\u0435\u043b\u043a\u0438?",
     type: "single",
     cols: 1,
-    options: ["до 50 т.р.", "50 – 200 т.р.", "более 200 т.р."],
+    options: [
+      "\u0414\u0430, \u0432\u0438\u0436\u0443 \u0433\u0434\u0435",
+      "\u0414\u043e\u0433\u0430\u0434\u044b\u0432\u0430\u044e\u0441\u044c, \u043d\u043e \u043d\u0435 \u0442\u043e\u0447\u043d\u043e",
+      "\u041d\u0435\u0442, \u043a\u0430\u043a \u0432 \u0442\u0443\u043c\u0430\u043d\u0435",
+    ],
   },
   {
-    id: "phone",
-    question: "Куда отправить результат?",
-    subtitle: "Покажем где команда теряет и что прокачать",
-    type: "phone",
+    id: "train_managers",
+    question: "\u041a\u0430\u043a \u0441\u0435\u0439\u0447\u0430\u0441 \u043f\u0440\u043e\u043a\u0430\u0447\u0438\u0432\u0430\u044e\u0442\u0441\u044f \u0432\u0430\u0448\u0438 \u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440\u044b?",
+    type: "single",
+    cols: 1,
+    options: [
+      "\u0420\u0435\u0433\u0443\u043b\u044f\u0440\u043d\u043e \u0442\u0440\u0435\u043d\u0438\u0440\u0443\u0435\u043c \u0441\u0430\u043c\u0438",
+      "\u0420\u0430\u0437\u043e\u0432\u044b\u0435 \u0442\u0440\u0435\u043d\u0438\u043d\u0433\u0438",
+      "\u041d\u0438\u043a\u0430\u043a \u0441\u0438\u0441\u0442\u0435\u043c\u043d\u043e",
+    ],
+  },
+  {
+    id: "contact",
+    question: "\u0412\u0430\u0448\u0438 \u043e\u0442\u0432\u0435\u0442\u044b \u0433\u043e\u0442\u043e\u0432\u044b \u2014 \u043a\u0443\u0434\u0430 \u043f\u0440\u0438\u0441\u043b\u0430\u0442\u044c \u0440\u0430\u0437\u0431\u043e\u0440?",
+    type: "contact",
   },
 ];
 
@@ -1037,7 +1111,8 @@ const QUIZ_STEPS = [
 function Quiz() {
   const [stepIdx, setStepIdx] = useState(0);
   const [answers, setAnswers] = useState({});
-  const [phone, setPhone] = useState("+7 ");
+  const [channel, setChannel] = useState("telegram");
+  const [contactValue, setContactValue] = useState("");
   const [done, setDone] = useState(false);
   const [slideDir, setSlideDir] = useState(1);
   const advanceTimer = React.useRef(null);
@@ -1048,14 +1123,14 @@ function Quiz() {
   const total = QUIZ_STEPS.length;
   const isLast = stepIdx === total - 1;
 
+  const progressPct = done ? 100 : stepIdx === 0 ? 33 : stepIdx === 1 ? 66 : 100;
+
   function canAdvance() {
     if (!step) return false;
-    if (step.type === "phone") return phone.replace(/\D/g, "").length >= 11;
+    if (step.type === "contact") return contactValue.trim().length >= 3;
     return Boolean(answers[step.id]);
   }
   const ready = canAdvance();
-
-  const progress = done ? 100 : ((stepIdx + (ready ? 1 : 0.4)) / total) * 100;
 
   function goNext() {
     if (stepIdx < total - 1) {
@@ -1065,7 +1140,7 @@ function Quiz() {
     } else {
       fetch(SHEET_URL, {
         method: "POST",
-        body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, phone, ...UTM, layout: AB_LAYOUT }),
+        body: JSON.stringify({ timestamp: new Date().toISOString(), ...answers, channel, contact: contactValue, ...UTM, layout: AB_LAYOUT, variant: 'trainer' }),
       }).catch(() => {});
       if (window.ym) ym(109371472, 'reachGoal', 'quiz_submit', {layout: AB_LAYOUT, variant: 'trainer'});
       setDone(true);
@@ -1074,40 +1149,12 @@ function Quiz() {
 
   function selectOption(opt) {
     setAnswers((a) => ({ ...a, [step.id]: opt }));
-    // Auto-advance after a short beat
     clearTimeout(advanceTimer.current);
     advanceTimer.current = setTimeout(() => goNext(), 280);
   }
 
-  function next() {
-    if (!ready) return;
-    goNext();
-  }
+  function next() { if (!ready) return; goNext(); }
   function back() { if (stepIdx > 0) { setSlideDir(-1); setStepIdx(stepIdx - 1); } }
-
-  function onPhoneChange(e) {
-    let raw = e.target.value.replace(/\D/g, "");
-    if (raw.startsWith("8")) raw = "7" + raw.slice(1);
-    if (!raw.startsWith("7")) raw = "7" + raw;
-    raw = raw.slice(0, 11);
-    let f = "+7";
-    if (raw.length > 1) f += " (" + raw.slice(1, 4);
-    if (raw.length >= 4) f += ") " + raw.slice(4, 7);
-    if (raw.length >= 7) f += "-" + raw.slice(7, 9);
-    if (raw.length >= 9) f += "-" + raw.slice(9, 11);
-    setPhone(f);
-  }
-
-  const [secsLeft, setSecsLeft] = React.useState(3600);
-  React.useEffect(() => {
-    if (!done) return;
-    const t = setInterval(() => setSecsLeft(s => s > 0 ? s - 1 : 0), 1000);
-    return () => clearInterval(t);
-  }, [done]);
-  function fmtTime(s) {
-    const m = Math.floor(s / 60), sec = s % 60;
-    return m + ":" + String(sec).padStart(2, "0");
-  }
 
   if (done) {
     return html`
@@ -1116,14 +1163,11 @@ function Quiz() {
         <div className="quiz-body">
           <div className="quiz-success">
             <div className="quiz-success-icon">${html`<${Icon} name="check" size=${28} stroke=${2.25} />`}</div>
-            <h3>${"\u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u0440\u0438\u043d\u044f\u0442\u0430!"}</h3>
-            <p className="quiz-success-timer">
-              ${"\u041f\u0435\u0440\u0435\u0437\u0432\u043e\u043d\u0438\u043c \u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 \u0447\u0430\u0441\u0430"}<br/>
-              ${"\u041e\u0441\u0442\u0430\u043b\u043e\u0441\u044c:"} <strong>${fmtTime(secsLeft)}</strong>
-            </p>
+            <h3>${"\u0420\u0430\u0437\u0431\u043e\u0440 \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d!"}</h3>
+            <p className="quiz-success-timer">${"\u041f\u0440\u0438\u0448\u043b\u0451\u043c \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u0438 \u0433\u0430\u0439\u0434"}<br/>${"\u0432 \u0442\u0435\u0447\u0435\u043d\u0438\u0435 \u043d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u0438\u0445 \u043c\u0438\u043d\u0443\u0442"}</p>
             <a className="quiz-success-tg" href="https://t.me/SoulArkAI">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 14.07l-2.968-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.944.516z"/></svg>
-              ${"\u041d\u0430\u043f\u0438\u0441\u0430\u0442\u044c \u0432 Telegram"}
+              ${"\u041d\u0430\u0448 \u043a\u0430\u043d\u0430\u043b \u0432 Telegram"}
             </a>
           </div>
         </div>
@@ -1134,28 +1178,26 @@ function Quiz() {
   return html`
     <section className="quiz" id="quiz">
       <div className="quiz-progress">
-        <div className="quiz-progress-fill" style=${{ width: progress + "%" }} />
+        <div className="quiz-progress-fill" style=${{ width: progressPct + "%" }} />
       </div>
 
       <div className="quiz-body">
         <div key=${stepIdx} className=${slideDir >= 0 ? "step-enter-right" : "step-enter-left"}>
-        <h3 className="quiz-question">${step.question}</h3>
-        ${step.subtitle && html`<p className="quiz-subtitle">${step.subtitle}</p>`}
-        ${step.id === "avg_check" && html`
-          <div className="step-badge">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style=${{flexShrink:0}}><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            ${"Данные только для расчёта · 152-ФЗ"}
-          </div>
-        `}
-        ${step.type === "phone" && html`
-          <div className="phone-caller">
-            <img src="../assets/pavel2.jpg" alt="Павел" className="phone-caller-avatar" loading="lazy" />
+
+        ${stepIdx === 0 && html`
+          <div className="gift-teaser">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B85C1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style=${{flexShrink:0}}>
+              <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/>
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+            </svg>
             <div>
-              <div className="phone-caller-name">${"Павел Артанов, со-основатель SoulArk AI"}</div>
-              <div className="phone-caller-sub">${"Позвонит 1 раз"}</div>
+              <div className="gift-teaser-title">${"\u0412 \u043a\u043e\u043d\u0446\u0435 \u043f\u0440\u0438\u0448\u043b\u0451\u043c \u043d\u0430\u0448 \u0433\u0430\u0439\u0434"}</div>
+              <div className="gift-teaser-sub">${"\u00ab\u041a\u0430\u043a \u0432\u043d\u0435\u0434\u0440\u0438\u0442\u044c AI \u0432 \u043e\u0442\u0434\u0435\u043b \u043f\u0440\u043e\u0434\u0430\u0436 \u0437\u0430 2 \u043d\u0435\u0434\u0435\u043b\u0438\u00bb \u2014 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e"}</div>
             </div>
           </div>
         `}
+
+        <h3 className="quiz-question">${step.question}</h3>
 
         ${step.type === "single" && html`
           <div className=${"options " + (step.cols === 2 ? "cols-2" : "")}>
@@ -1176,50 +1218,65 @@ function Quiz() {
           </div>
         `}
 
-        ${step.type === "phone" && html`
-          <div className="phone-field">
-            <div className="phone-row">
-              <span className="phone-flag">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" width="26" height="18" style=${{borderRadius:"2px",display:"block"}}>
-                  <rect width="900" height="200" fill="#fff"/>
-                  <rect width="900" height="200" y="200" fill="#0039A6"/>
-                  <rect width="900" height="200" y="400" fill="#D52B1E"/>
-                </svg>
-              </span>
-              <input
-                type="tel"
-                inputMode="numeric"
-                className="phone-input"
-                placeholder="+7 (___) ___-__-__"
-                value=${phone}
-                onChange=${onPhoneChange}
-                autoComplete="tel"
-                autoFocus
-                onKeyDown=${(e) => { if (e.key === "Enter" && ready) goNext(); }}
-              />
+        ${step.type === "contact" && html`
+          <div>
+            <p className="contact-header">${"3 \u0432\u043e\u043f\u0440\u043e\u0441\u0430 \u043f\u0440\u043e\u0439\u0434\u0435\u043d\u044b \u2014 \u0445\u043e\u0440\u043e\u0448\u0438\u0439 \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442"}</p>
+            <div className="gift-block">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B85C1E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style=${{flexShrink:0}}>
+                <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+              </svg>
+              <span>${"\u041f\u0440\u0438\u0448\u043b\u0451\u043c \u0440\u0430\u0437\u0431\u043e\u0440 + \u0433\u0430\u0439\u0434 \u00abAI \u0432 \u043e\u0442\u0434\u0435\u043b\u0435 \u043f\u0440\u043e\u0434\u0430\u0436\u00bb \u2014 \u0431\u0435\u0441\u043f\u043b\u0430\u0442\u043d\u043e"}</span>
             </div>
+            <p className="contact-sub">${"\u041a\u0443\u0434\u0430 \u0443\u0434\u043e\u0431\u043d\u0435\u0435 \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c?"}</p>
+            <div className="channel-tabs">
+              ${["telegram", "max", "phone"].map(ch => html`
+                <button
+                  key=${ch}
+                  type="button"
+                  className=${"channel-tab" + (channel === ch ? " active" : "")}
+                  onClick=${() => setChannel(ch)}
+                >
+                  ${ch === "telegram" ? "Telegram" : ch === "max" ? "Max" : "\u041f\u043e\u0437\u0432\u043e\u043d\u0438\u0442\u044c"}
+                </button>
+              `)}
+            </div>
+            <input
+              type=${channel === "phone" ? "tel" : "text"}
+              className="phone-input"
+              placeholder=${channel === "phone" ? "+7 (___) ___-__-__" : "@username"}
+              value=${contactValue}
+              onInput=${(e) => setContactValue(e.target.value)}
+              autoFocus
+              onKeyDown=${(e) => { if (e.key === "Enter" && ready) goNext(); }}
+            />
+            <button
+              type="button"
+              className="btn-next"
+              onClick=${next}
+              disabled=${!ready}
+              style=${{marginTop: "14px", width: "100%"}}
+            >${"\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0440\u0430\u0437\u0431\u043e\u0440 \u0438 \u0433\u0430\u0439\u0434 \u2192"}</button>
+            <p className="quiz-trust" style=${{marginTop:"10px"}}><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style=${{verticalAlign:"middle", marginRight:"4px", marginBottom:"1px"}}><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>${"\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e \u00b7 \u0420\u0430\u0431\u043e\u0442\u0430\u0435\u043c \u043f\u043e 152-\u0424\u0417"}</p>
           </div>
         `}
         </div>
 
-        <div className=${"quiz-nav" + (isLast ? " is-last" : "")}>
-          <div className="quiz-step-label">${stepIdx + 1} ${"из"} ${total}</div>
-          <div className="quiz-nav-right">
-            ${step.type !== "phone" && html`
+        ${step.type !== "contact" && html`
+          <div className="quiz-nav">
+            <div className="quiz-step-label">${stepIdx + 1} ${"\u0438\u0437"} ${total - 1}</div>
+            <div className="quiz-nav-right">
               <button type="button" className="btn-back" onClick=${back} disabled=${stepIdx === 0} aria-label=${"\u041d\u0430\u0437\u0430\u0434"}>
                 <${Icon} name="arrow-left" size=${18} />
               </button>
-            `}
-            <button type="button" className="btn-next" onClick=${next} disabled=${!ready} style=${{display: isLast ? "" : "none"}}>
-              ${"\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043c\u043e\u0439 \u0440\u0430\u0441\u0447\u0451\u0442 \u2192"}
-            </button>
+            </div>
           </div>
-          <p className="quiz-trust"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style=${{verticalAlign:"middle", marginRight:"4px", marginBottom:"1px"}}><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>${"\u0411\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e \u00b7 \u0420\u0430\u0431\u043e\u0442\u0430\u0435\u043c \u043f\u043e 152-\u0424\u0417"}</p>
-        </div>
+        `}
       </div>
     </section>
   `;
 }
+
 
 // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 // MAIN APP
@@ -1238,7 +1295,7 @@ function App() {
           </div>
         </div>
 
-        ${AB_LAYOUT === "a" ? html`
+        ${false ? html`
           <section className="hero">
             <div className="hero-left">
               <h1 className="hero-title">${"\u0422\u0440\u0435\u043d\u0438\u043d\u0433 \u0437\u0430\u0431\u044b\u0432\u0430\u0435\u0442\u0441\u044f \u0447\u0435\u0440\u0435\u0437 \u043d\u0435\u0434\u0435\u043b\u044e. \u042d\u0442\u043e\u0442 \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043a\u0430\u0436\u0434\u044b\u0439 \u0434\u0435\u043d\u044c"}</h1>
@@ -1260,9 +1317,6 @@ function App() {
           </section>
           <div className="quiz-intro">
             <span className="accent">${"\u0423\u0437\u043d\u0430\u0439\u0442\u0435 \u0433\u0434\u0435 \u043f\u0440\u043e\u0441\u0435\u0434\u0430\u0435\u0442 \u0432\u0430\u0448\u0430 \u043a\u043e\u043c\u0430\u043d\u0434\u0430"}</span><span className="quiz-intro-sub">${"\u041e\u0442\u0432\u0435\u0442\u044c\u0442\u0435 \u043d\u0430 4 \u0432\u043e\u043f\u0440\u043e\u0441\u0430 \u2014 \u043f\u043e\u043a\u0430\u0436\u0435\u043c \u0433\u0434\u0435 \u0443\u0442\u0435\u043a\u0430\u044e\u0442 \u0441\u0434\u0435\u043b\u043a\u0438 \u0438 \u0447\u0442\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u0442"}</span>
-          </div>
-          <div className="micro-promise">
-            <div className="micro-promise-sub">${"\u0417\u0430\u0439\u043c\u0451\u0442 1 \u043c\u0438\u043d\u0443\u0442\u0443"}</div>
           </div>
           ${html`<${Quiz} />`}
           <div className="benefits-bottom">
@@ -1311,10 +1365,7 @@ function App() {
             </div>
           </section>
           <div className="quiz-intro">
-            <span className="accent" style=${{color: "var(--color-accent)"}}>${"\u0423\u0437\u043d\u0430\u0439\u0442\u0435 \u0433\u0434\u0435 \u043f\u0440\u043e\u0441\u0435\u0434\u0430\u0435\u0442 \u0432\u0430\u0448\u0430 \u043a\u043e\u043c\u0430\u043d\u0434\u0430"}</span><span className="quiz-intro-sub">${"\u041e\u0442\u0432\u0435\u0442\u044c\u0442\u0435 \u043d\u0430 4 \u0432\u043e\u043f\u0440\u043e\u0441\u0430 \u2014 \u043f\u043e\u043a\u0430\u0436\u0435\u043c \u0433\u0434\u0435 \u0443\u0442\u0435\u043a\u0430\u044e\u0442 \u0441\u0434\u0435\u043b\u043a\u0438 \u0438 \u0447\u0442\u043e \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u043f\u043e\u043c\u043e\u0433\u0430\u0435\u0442"}</span>
-          </div>
-          <div className="micro-promise">
-            <div className="micro-promise-sub">${"\u0417\u0430\u0439\u043c\u0451\u0442 1 \u043c\u0438\u043d\u0443\u0442\u0443"}</div>
+            <span className="accent" style=${{color: "var(--color-accent)"}}>${"\u0423\u0437\u043d\u0430\u0439\u0442\u0435 \u0433\u0434\u0435 \u043f\u0440\u043e\u0441\u0435\u0434\u0430\u0435\u0442 \u0432\u0430\u0448\u0430 \u043a\u043e\u043c\u0430\u043d\u0434\u0430"}</span><span className="quiz-intro-sub">${"3 \u0432\u043e\u043f\u0440\u043e\u0441\u0430 \u043e \u0432\u0430\u0448\u0435\u043c \u043e\u0442\u0434\u0435\u043b\u0435 \u2014 \u0432 \u043a\u043e\u043d\u0446\u0435 \u0447\u0435\u0441\u0442\u043d\u044b\u0439 \u0440\u0430\u0437\u0431\u043e\u0440 \u043e\u0442 \u044d\u043a\u0441\u043f\u0435\u0440\u0442\u0430. \u0417\u0430\u0439\u043c\u0451\u0442 1 \u043c\u0438\u043d\u0443\u0442\u0443."}</span>
           </div>
           ${html`<${Quiz} />`}
           <div className="benefits-bottom">
